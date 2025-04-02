@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI智能客服系统</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="title-bar">
+    <div class="title">AI智能客服系统</div>
+    <div class="window-controls">
+      <button class="window-control-btn minimize" onclick="window.electron.send('window-min')">─</button>
+      <button class="window-control-btn close" onclick="window.electron.send('window-close')">✕</button>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="customer-list">
+      <div class="header">
+        客户列表
+        <button class="mock-btn" onclick="sendMockMessage()">模拟客户消息</button>
+      </div>
+      <div class="customer-item active" onclick="switchCustomer('1')">
+        <div class="customer-name">张三</div>
+        <div class="customer-info">ID: 1001 | 最近联系: 今天</div>
+      </div>
+      <div class="customer-item" onclick="switchCustomer('2')">
+        <div class="customer-name">李四</div>
+        <div class="customer-info">ID: 1002 | 最近联系: 昨天</div>
+      </div>
+      <div class="customer-item" onclick="switchCustomer('3')">
+        <div class="customer-name">王五</div>
+        <div class="customer-info">ID: 1003 | 最近联系: 2天前</div>
+      </div>
+      <div class="customer-item" onclick="switchCustomer('4')">
+        <div class="customer-name">赵六</div>
+        <div class="customer-info">ID: 1004 | 最近联系: 3天前</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="chat-container">
+        <div class="header">对话窗口</div>
+        <div class="messages" id="messages"></div>
+        <div class="input-container">
+          <textarea id="messageInput" placeholder="请输入消息..."></textarea>
+          <button onclick="sendMessage()">发送</button>
+        </div>
+      </div>
+      <div class="ai-suggestion-container">
+        <div class="header">AI建议</div>
+        <div id="thinkContent" class="think-content" style="display: none;">
+          <div class="think-header" onclick="toggleThink()">
+            思考过程 <span class="toggle-icon">▼</span>
+          </div>
+          <div id="thinkBody" class="think-body"></div>
+        </div>
+        <div class="messages" id="aiSuggestions"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "api": {
+        "key": "ragflow-M2ODZiODI2MDUzYzExZjA5ODhjMDI0Mm",
+        "baseUrl": "http://localhost/api/v1",
+        "chatCompletionsPath": "/chats_openai/{chat_id}/chat/completions",
+        "createChatPath": "/chats"
+    }
+}
